@@ -1,15 +1,14 @@
-import { addContent} from './dom.js'
+import { addContent, createTable} from './dom.js'
 
 
 const container = document.getElementById('container');
 const addBook = addContent();
+const submit = document.getElementById("submit");
 
-
-container.appendChild(addBook);
 
 let myBooks = [];
 
-function Book(title, auther, pages, read) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -25,10 +24,36 @@ const addBooks = () => {
  
   const newBook = new Book(title, author, pages, read);
   myBooks.push(newBook);
+  localStorage.setItem('data', JSON.stringify(myBooks));
   
-
+ 
  
 };
 
+
+const render = () => {
+  localStorage.getItem("data")
+  myBooks = JSON.parse(localStorage.getItem("data"));
+  for (let i = 0; i < myBooks.length; i = i + 1) {
+    const tr = createTable(myBooks[i]);
+    
+  }
+  
+  
+};
+
+container.appendChild(addBook)
+
+
+
+submit.onclick = function (e) {
+  e.preventDefault();
+  addBooks();
+  console.log(myBooks)
+};
+
+window.onload = () => {
+  render();
+};
 
 
