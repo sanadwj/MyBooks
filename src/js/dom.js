@@ -1,3 +1,5 @@
+
+
 function addContent() {
   const container = document.getElementById('container');
   
@@ -61,12 +63,41 @@ function addContent() {
 return addBook;
 }
 
-function createTable() {
-  const contenr = document.getElementById('container');
+// function createTable(book) {
+//   const contenr = document.getElementById('container');
 
-  const table = document.createElement('table');
-  table.classList.add('table');
-  container.appendChild(table);
-}
+//   const table = document.createElement('table');
+//   table.classList.add('table');
+//   container.appendChild(table);
+
+//   const thead = document.createElement('thead');
+//   container.appendChild(thead);
+
+//   const tDiv = document.createElement('div');
+//   const ttr = document.createElement('tr');
+//   ttr.innerHTML = `<td>Title: ${book.title} </td>`
+//   tDiv.appendChild(ttr);
+//   table.appendChild(tDiv);
+
+//   const aDiv = document.createElement('div');
+//   const atr = document.createElement('tr');
+//   atr.innerHTML = `<td>Author: ${book.auther}</td>`
+//   aDiv.appendChild(atr);
+//   table.appendChild(aDiv);
+
+//   const pDiv = document.createElement('div');
+//   const ptr = document.createElement('tr');
+//   ptr.innerHTML = `<td>Pages ${book.pages}</td>`
+//   pDiv.appendChild(ptr);
+//   table.appendChild(pDiv);
+
+//   // const rDiv = document.createElement('div');
+//   // const status = document.createElement('button');
+//   // status.innerHTML = '<button onclick'
+
+
+//   return table;
+
+// }
 
 export {addContent};
