@@ -1,19 +1,23 @@
 
-
 function addContent() {
   const container = document.getElementById('container');
   
 
   const addBook = document.createElement('div');
   addBook.classList.add('addBook');
+  container.setAttribute('style', 'text-align: center ')
   container.appendChild(addBook);
 
-  const form = document.createElement('form')
-  container.appendChild(form)
+  
+
+  const form = document.createElement('form');
+  form.innerHTML = 'Add a Book';
+  form.setAttribute('style', 'margin: 1em');
+  container.appendChild(form);
   
 
   const titleDiv = document.createElement('div')
-  titleDiv.innerHTML = '<h3>Title</h3>' 
+  titleDiv.setAttribute('style', 'margin: 0.5em')
   const title = document.createElement('input');
   title.setAttribute('id', 'title');
   title.setAttribute("type", "text");
@@ -23,7 +27,7 @@ function addContent() {
 
 
   const authorDiv = document.createElement('div')
-  authorDiv.innerHTML = '<h3>Author</h3>'
+  authorDiv.setAttribute('style', 'margin: 0.5em')
   const author = document.createElement('input');
   author.setAttribute('id', 'author');
   author.setAttribute("type", "text");
@@ -33,7 +37,7 @@ function addContent() {
 
 
   const pagesDiv = document.createElement('div')
-  pagesDiv.innerHTML = '<h3>pages</h3>'
+  pagesDiv.setAttribute('style', 'margin: 0.5em')
   const pages = document.createElement('input');
   pages.setAttribute('id', 'pages');
   pages.setAttribute("type", "number");
@@ -42,16 +46,10 @@ function addContent() {
   form.appendChild(pagesDiv);
 
 
-  const readkDiv = document.createElement('div');
-  readkDiv.innerHTML = `<h4>Read</h4>`
-  const read = document.createElement('input');
-  read.setAttribute('id', 'read');
-  read.setAttribute('type', 'checkbox');
-  readkDiv.appendChild(read);
-  form.appendChild(readkDiv);
-
+  
 
   const submitDiv = document.createElement('div');
+  submitDiv.setAttribute('style', 'margin: 0.5em')
   const submit = document.createElement("button");
   submit.setAttribute("id", "submit");
   submit.setAttribute("type", "submit");
@@ -60,19 +58,26 @@ function addContent() {
   form.appendChild(submitDiv);
 
 
+
+
+
 return addBook;
 }
 
-function createTable(book) {
-  const contenr = document.getElementById('container');
+
+function createTable(book,i) {
+  const container = document.getElementById('container');
 
   const table = document.createElement('table');
   table.classList.add('table');
+  table.setAttribute('style', 'margin: 0.5em; width: 100%; display: inline-block; flex-direction: column; border-top: 2px solid gray');
+  table.setAttribute('id', 'id');
+  table.id = book.id++
   container.appendChild(table);
-
-  const thead = document.createElement('thead');
-  container.appendChild(thead);
-
+  
+  
+  
+  
   const tDiv = document.createElement('div');
   const ttr = document.createElement('tr');
   ttr.innerHTML = `<td>Title: ${book.title} </td>`
@@ -92,14 +97,26 @@ function createTable(book) {
   table.appendChild(pDiv);
 
   const rDiv = document.createElement('div');
-  const status = document.createElement('button');
-  status.innerHTML = '<button onclick'
-
-
-
-
  
+  const rtr = document.createElement('a');
+  rtr.setAttribute('id', 'check');
+  rtr.setAttribute('href', '');
+  rtr.setAttribute('onclick', `updateReadStatus(${book.id - 1})`)
+  rtr.innerHTML = `${book.read ? "Read" : "Unread"}`
+  rDiv.appendChild(rtr);
+  table.appendChild(rDiv);
 
+
+  const dDiv = document.createElement('div');
+  const dtr = document.createElement('button');
+  dtr.setAttribute('id', 'remove');
+  dtr.setAttribute('onclick', `deleteBook(${book.id - 1})`)
+  dtr.innerHTML = `Remove`
+  dDiv.appendChild(dtr);
+  table.appendChild(dDiv);
+  
+  
 }
 
 export {addContent, createTable};
+
