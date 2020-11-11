@@ -15,8 +15,6 @@
     "no-param-reassign": "off",
     "eol-last": "off",
     "arrow-parens": "off",
-    "no-unused-vars": "off",
-    "no-plusplus":"off",
     "import/extensions": "off"
   },
   "ignorePatterns": [

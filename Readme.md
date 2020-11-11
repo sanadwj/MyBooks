@@ -4,7 +4,7 @@
 
 ![App Preview](./screenshot.png)
 
-> The main objective for this application is to test the ability to use object constructors and to do some DOM manipulation.
+> The main objective for this application is to test the ability to use object constructors and to do DOM manipulation.
 
 
 ## Built With

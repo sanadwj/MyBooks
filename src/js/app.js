@@ -1,7 +1,7 @@
 import { addContent, createTable } from './dom.js';
 
 
-const addBook = addContent();
+addContent();
 
 const submit = document.getElementById('submit');
 
@@ -9,7 +9,7 @@ let myBooks = [];
 const bookId = 0;
 
 
-function Book(title, author, pages, read, i) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;

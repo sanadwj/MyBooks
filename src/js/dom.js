@@ -65,7 +65,7 @@ function addContent() {
 }
 
 
-function createTable(book, i) {
+function createTable(book) {
   const container = document.getElementById('container');
 
   const table = document.createElement('table');
@@ -74,7 +74,7 @@ function createTable(book, i) {
   table.setAttribute('id', 'id');
   table.classList.add('container');
   table.classList.add('m-2');
-  table.id = book.id++;
+  book.id += 1;
   container.appendChild(table);
 
 
